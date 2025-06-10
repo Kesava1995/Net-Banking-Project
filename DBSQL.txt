@@ -1,0 +1,28 @@
+CREATE DATABASE db1006;
+use db1006;
+CREATE TABLE tb1006(
+id INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(20) NOT NULL,
+email VARCHAR(35) UNIQUE,
+pass VARCHAR(255) NOT NULL,
+Acnum VARCHAR(15) UNIQUE,
+Balance DECIMAL(10,2) DEFAULT 0.00,
+DOB DATE,
+mob BIGINT,
+aem VARCHAR(35),
+preflan VARCHAR(20),
+mot VARCHAR(20)
+);
+CREATE TABLE tranrec(
+tran_id INT AUTO_INCREMENT PRIMARY KEY,
+trantype VARCHAR(6) NOT NULL,
+amount DECIMAL(10,2) NOT NULL,
+FromAcnum VARCHAR(15) NOT NULL,
+ToAcnum VARCHAR(15),
+Frombank VARCHAR(50) NOT NULL,
+Tobank VARCHAR(50),
+Balance DECIMAL(10,2) NOT NULL,
+username VARCHAR(20)
+);
+
+username, email, pass, acno, bal, DOB, mob, aem, preflan, mot

@@ -1,0 +1,22 @@
+SELECT * FROM tb1006;
+
+SELECT * FROM tranrec;
+
+523951254741258
+Gawar Bank of India
+2000
+
+Varun1124
+varun_goel112@gamil.com
+php1234
+511951254778563
+10000
+11-09-1986
+7152364893
+varun_goel112@yahii.com
+English
+Hindi
+
+TRUNCATE TABLE tb1006;
+
+TRUNCATE TABLE tranrec;
