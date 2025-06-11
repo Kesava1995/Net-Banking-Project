@@ -69,6 +69,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['debit'])) {
 		$_SESSION['message'] = "Error: Insufficient funds."; 
 		exit();
     }
+	$conn->begin_transaction();
+	$conn->query("SET TRANSACTION ISOLATION LEVEL SERIALIZABLE");
+	try {
 	$dbbal-=floatval($_POST['deb']);
 	$ttype=$_POST['debit'];
 	$tan=$_POST['AN'];
@@ -114,6 +117,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['debit'])) {
 	} else {
 		$mess= "Error: " . $stmt->error;
 	}
+	$conn->commit(); // If all succeed
+	} catch (Exception $e) {
+    $conn->rollback(); // Revert changes if any fail
+}
 }
 }
 ?>
